@@ -40,3 +40,7 @@ const renderSquare = () => {
   }
 }
 
+const renderInfo = () => {
+  document.querySelector('.vez').innerHTML = player;
+  document.querySelector('.resultado').innerHTML = warning;
+}
