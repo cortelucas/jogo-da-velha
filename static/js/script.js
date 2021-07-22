@@ -2,39 +2,38 @@
 let square = {
   a1: '', a2: '', a3: '',
   b1: '', b2: '', b3: '',
-  c1: '', c2: '', c3: '',
+  c1: '', c2: '', c3: ''
 }
-
 let player = '';
 let warning = '';
 let playing = false;
 
 reset();
+
 //eventos
-let reset = document.querySelector('.reset');
+let buttonReset = document.querySelector('.reset');
 let items = document.querySelectorAll('.item');
 
+buttonReset.addEventListener('click', reset);
 items.forEach((item) => {
   item.addEventListener('click', itemClick);
 })
-reset.addEventListener('click', reset)
 
 //funcoes
-const itemClick = (e) => {
+function itemClick(e) {
   let item = e.target.getAttribute('data-item');
 
-  if (square[item] = ''){
+  if (playing && square[item] === ''){
     square[item] = player;
     renderSquare();
     togglePlayer();
   }
 }
 
-
-const reset = () => {
+function reset() {
   warning = '';
   
-  let random = Math.floor(Math.random() *2);
+  let random = Math.floor(Math.random() * 2);
   player = (random === 0) ? 'x' : 'o';
 
   for (let i in square) {
@@ -47,7 +46,7 @@ const reset = () => {
   renderInfo();
 }
 
-const renderSquare = () => {
+function renderSquare() {
   for (let i in square) {
     let item = document.querySelector(`div[data-item=${i}]`);
     item.innerHTML = square[i];
@@ -56,17 +55,17 @@ const renderSquare = () => {
   checkGame();
 }
 
-const renderInfo = () => {
+function renderInfo() {
   document.querySelector('.vez').innerHTML = player;
   document.querySelector('.resultado').innerHTML = warning;
 }
 
-const togglePlayer = () => {
+function togglePlayer(){
   player = (player === 'x') ? 'o' : 'x';
-  renderInfo
+  renderInfo();
 }
 
-const checkGame = () => {
+function checkGame(){
   if (checkWinnerFor('x')){
     warning = 'O "x" venceu!';
     playing = false;
@@ -79,7 +78,7 @@ const checkGame = () => {
   }
 }
 
-const checkWinnerFor = (player) => {
+function checkWinnerFor(player){
   let possibilities = [
     'a1,a2,a3',
     'b1,b2,b3',
@@ -102,7 +101,7 @@ const checkWinnerFor = (player) => {
   return false;
 }
 
-const isFull = () => {
+function isFull() {
   for (let i in square) {
     if (square[i] === '') {
       return false;
