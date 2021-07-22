@@ -12,7 +12,11 @@ let playing = false;
 reset();
 //eventos
 let reset = document.querySelector('.reset');
+let items = document.querySelectorAll('.item');
 
+items.forEach((item) => {
+  item.addEventListener('click', itemClick);
+})
 reset.addEventListener('click', reset)
 
 //funcoes
