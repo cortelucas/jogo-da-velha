@@ -59,3 +59,7 @@ const renderInfo = () => {
   document.querySelector('.resultado').innerHTML = warning;
 }
 
+const togglePlayer = () => {
+  player = (player === 'x') ? 'o' : 'x';
+  renderInfo
+}
