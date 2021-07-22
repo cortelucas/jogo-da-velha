@@ -101,3 +101,13 @@ const checkWinnerFor = (player) => {
 
   return false;
 }
+
+const isFull = () => {
+  for (let i in square) {
+    if (square[i] === '') {
+      return false;
+    }
+  }
+  
+  return true;
+}
