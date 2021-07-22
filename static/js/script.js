@@ -20,6 +20,16 @@ items.forEach((item) => {
 reset.addEventListener('click', reset)
 
 //funcoes
+const itemClick = (e) => {
+  let item = e.target.getAttribute('data-item');
+
+  if (square[item] = ''){
+    square[item] = player;
+    renderSquare();
+    togglePlayer();
+  }
+}
+
 
 const reset = () => {
   warning = '';
@@ -48,3 +58,4 @@ const renderInfo = () => {
   document.querySelector('.vez').innerHTML = player;
   document.querySelector('.resultado').innerHTML = warning;
 }
+
