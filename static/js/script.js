@@ -79,7 +79,7 @@ const checkGame = () => {
   }
 }
 
-const checkWinnerFor(player) {
+const checkWinnerFor = (player) => {
   let possibilities = [
     'a1,a2,a3',
     'b1,b2,b3',
@@ -98,6 +98,6 @@ const checkWinnerFor(player) {
     let hasWon = pArray.every(option => square[option] === player);
     if(hasWon) return true;
   }
-  
+
   return false;
 }
