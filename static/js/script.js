@@ -33,4 +33,10 @@ const reset = () => {
   renderInfo();
 }
 
+const renderSquare = () => {
+  for (let i in square) {
+    let item = document.querySelector(`div[data-item=${i}]`);
+    item.innerHTML = square[i];
+  }
+}
 
